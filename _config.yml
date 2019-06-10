@@ -18,6 +18,10 @@ root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
+# Build settings
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+sidebar-avatar: img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
 # Directory
 source_dir: source
 public_dir: public
@@ -73,7 +77,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+#theme: landscape
+theme: aircloud
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
