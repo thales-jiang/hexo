@@ -1,7 +1,7 @@
 ---
 title: markdown
 date: 2019-06-06 16:47:33
-tags: markdown md
+tags: markdown
 ---
 markdown的使用
 ▸ 标题
