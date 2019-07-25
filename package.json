@@ -7,10 +7,12 @@
     "url": "https://github.com/thales-jiang/hexo.git"
   },
   "hexo": {
-    "version": "3.8.0"
+    "version": "3.9.0"
   },
   "scripts": {
-    "start": "hexo server"
+    "start": "hexo server",
+    "add": "hexo new",
+    "deploy": "hexo deploy"
   },
   "dependencies": {
     "hexo": "^3.8.0",
