@@ -156,3 +156,20 @@ special-class:{}
 ```html
 <div class="special-class"></div>
 ```
+## 下划线
+成员变量
+```js
+class MyClass{
+  construct(
+    this._memberVar = 1;
+  );
+}
+```
+实体元素写两个下划线，就是在场景中实际存在的内容
+```js
+class MyClass{
+  construct(
+    this.__element = document.getElementById("elementID");
+  );
+}
+```
