@@ -19,7 +19,21 @@ if()a;//SyntaxError: Unexpected token )
 ```
 --------------
 # ESLint
-有些规范建议直接在eslint设置规范
+有些规范建议直接在eslint设置规范  
+错误等级有的地方用的是数字，可以参考一下  
+> "off" 或者 0：关闭规则。  
+> "warn" 或者 1：打开规则，并且作为一个警告（不影响exit code）。  
+> "error" 或者 2：打开规则，并且作为一个错误（exit code将会是1）。  
+```js
+{
+  rules: {
+    'indent': [2, 2, {
+      'SwitchCase': 1
+    }],
+    'semi': [2, 'always'],
+  }
+}
+```
 ## indent 缩进
 > indent  
 > 英 [ɪnˈdent]   美 [ɪnˈdent]  
@@ -54,6 +68,9 @@ if(true){
 }
 ```
 ## 分号
+> semicolon  
+> 英 [ˌsemiˈkəʊlən]   美 [ˈsemikoʊlən]  
+> n. 分号;   
 建议加分号，因为在很多情况下会有问题，尤其ASI
 ```js
 a = b + c
@@ -173,3 +190,16 @@ class MyClass{
   );
 }
 ```
+## 命名规范
+以下所有命名注意语义化，禁止使用a,b,name1,name2,拼音等命名方法
+1. 前缀应当为动词
+2. 可使用常见动词约定
+
+前缀 | 示例 | 作用 | 返回
+---------| ---------| ---------| -------------
+can | canRead | 判断是否可执行某个动作(权限) | 函数返回一个布尔值。true：可执行；false：不可执行
+has | hasTag | 判断是否含有某个值 | 函数返回一个布尔值。true：含有此值；false：不含有此值
+is | isExpire | 判断是否为某个值 | 函数返回一个布尔值。true：为某个值；false：不为某个值
+get | getUserByName | 获取某个值 | 函数返回一个非布尔值
+set | setUserName | 设置某个值 | 无返回值、返回是否设置成功或者返回链式对象
+load | loadImage | 加载某些数据 | 无返回值或者返回是否加载完成的结果
