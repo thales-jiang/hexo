@@ -5,6 +5,7 @@ tags:
 ---
 
 脚手架开发
+================================
 # 准备
 先找个目录初始化一下npm
 ```bash
@@ -21,14 +22,22 @@ npm i -S commander
 ```
 ## 版本
 最简单的program显示版本
+
+
 > 我们创建一个index.js文件，写入下面的代码
+
+
 ```js
 const program = require('commander'); // 为什么命名叫program而不是commander，因为commander是保留字段
 program.version("0.0.1"); // 设置版本号
 program.parse(process.argv); // 解析进程
 ```
 > 如果不知道process关键字，可以去看 http://nodejs.cn/api/process.html  
+
+
 我们用node执行一下
+
+
 ```bash
 node index.js --version
 ```

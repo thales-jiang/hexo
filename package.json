@@ -12,6 +12,7 @@
   "scripts": {
     "start": "hexo server",
     "add": "hexo new",
+    "clean": "hexo clean",
     "deploy": "hexo deploy"
   },
   "dependencies": {

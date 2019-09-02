@@ -34,6 +34,17 @@ if()a;//SyntaxError: Unexpected token )
   }
 }
 ```
+如果想在vscode自动语法提示中标注错误和警告，需要在setting里面添加
+```json
+{
+  "eslint.validate": [
+    "javascript",{
+      "language": "vue"
+    },"html",
+    "vue"
+  ]
+}
+```
 ## indent 缩进
 > indent  
 > 英 [ɪnˈdent]   美 [ɪnˈdent]  
@@ -75,17 +86,17 @@ if(true){
 ```js
 a = b + c
 (d + e).print()
-//会解析成下面的
+// 会解析成下面的
 a = b + c(d + e).print();
 //-------------
 a = b
 /hi/g.exec(c).map(d)
-//会解析成下面的
+// 会解析成下面的
 a = b / hi / g.exec(c).map(d);
 //-------------
 someFunction()
 ['ul', 'ol'].map(x => x + x)
-//会解析成下面的
+// 会解析成下面的
 const propKey = ('ul','ol'); // comma operator
 assert.equal(propKey, 'ol');
 someFunction()[propKey].map(x => x + x);
@@ -100,8 +111,8 @@ someFunction()[propKey].map(x => x + x);
 ## 变量以及属性的命名规则
 必须是统一码(Unicode)
 + 字母:a-z,A-Z等
-+ $,_
-  + -不能用
++ “$”(美元符号)和“_”(下划线)
+  + “-”(横杠)不能用
 + 数字:0-9等
   + 不能以数字不能开头  
 ```js
@@ -110,8 +121,8 @@ const ε = 0.0001;
 let 变量 = 0.0001;
 let _tmp = 0;
 const $foo2 = true;
-let 0a = 1;//SyntaxError: Invalid or unexpected token
-let a-b = 1;//SyntaxError: Unexpected token -
+let 0a = 1;// SyntaxError: Invalid or unexpected token
+let a-b = 1;// SyntaxError: Unexpected token -
 ```
 *小贴士*：
 不能用预留关键字做变量,比如if,ture,const  
@@ -119,7 +130,7 @@ let a-b = 1;//SyntaxError: Unexpected token -
 ```js
 const if = 123;// SyntaxError: Unexpected token if
 const obj = { if: 123 };
-obj.if//123
+obj.if// 123
 ```
 所有js预留关键字
 ```
@@ -153,18 +164,18 @@ my-module.js
 ## 大小写
 首字母小写
 ```js
-let myVar;//变量
-function myFunction(){}//函数
+let myVar;// 变量
+function myFunction(){}// 函数
 let obj = {};
-obj.myMethod//方法
+obj.myMethod// 方法
 ```
 首字母大写
 ```js
-class MyClass {}//类
+class MyClass {}// 类
 ```
 大写加下划线
 ```js
-const EVENT_START = "事件开始"//常量
+const EVENT_START = "事件开始"// 常量
 ```
 css请用肉串样式
 ```css
@@ -172,6 +183,12 @@ special-class:{}
 ```
 ```html
 <div class="special-class"></div>
+```
+html标签以及属性也请用肉串样式
+```html
+<common-tree :section-name="remote.tree.sectionName">
+  <div>...</div>
+<common-tree>
 ```
 ## 下划线
 成员变量
@@ -203,3 +220,42 @@ is | isExpire | 判断是否为某个值 | 函数返回一个布尔值。true：
 get | getUserByName | 获取某个值 | 函数返回一个非布尔值
 set | setUserName | 设置某个值 | 无返回值、返回是否设置成功或者返回链式对象
 load | loadImage | 加载某些数据 | 无返回值或者返回是否加载完成的结果
+
+
+# 注释
+## Dom注释
+方便在比较长的标签中，知道标签的开始位置以及结束位置
+```html
+<!-- 文章列表列表模块 开始 -->
+<div class="article-list">
+...
+</div>
+<!-- 文章列表列表模块 结束 -->
+```
+## 函数注释：1.描述，2.入参，出参&类型
+写清楚函数介绍以及参数和返回
+```js
+/**
+ * 函数描述
+ *
+ * @param {string} p1 参数1的说明
+ * @param {string} p2 参数2的说明，比较长那就换行了
+ * @param {number=} p3 参数3的说明（可选）
+ * @return {Object} 返回值描述
+ */
+function foo(p1, p2, p3) {
+  var p3 = p3 || 10;
+  return {
+    p1: p1,
+    p2: p2,
+    p3: p3
+  };
+}
+```
+## 变量以及逻辑注释
+放在变量后面，比放在前后多更好的可以形容变量
+```js
+let choices = [];// 模板选择
+for(const k in tpl){// 把json的键插入数组，用于inquirer的list选择
+  choices.push(k);
+}
