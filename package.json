@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/thales-jiang/hexo.git"
+    "url": "https://github.com/thales-blog/hexo.git"
   },
   "hexo": {
     "version": "3.9.0"
