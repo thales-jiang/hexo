@@ -1,7 +1,7 @@
 ---
 title: transition 过渡动画
 date: 2019-09-12 17:05:51
-tags:
+tags: animation 动画 transition
 ---
 # 过渡
 css3时代，增加了一个transition属性，用处是让变化增加过程

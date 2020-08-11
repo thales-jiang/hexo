@@ -7,7 +7,7 @@
     "url": "https://github.com/thales-blog/hexo.git"
   },
   "hexo": {
-    "version": "3.9.0"
+    "version": "3.8.0"
   },
   "scripts": {
     "start": "hexo server",
